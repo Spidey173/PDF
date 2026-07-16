@@ -1,0 +1,399 @@
+@import "tailwindcss";
+
+/* ============================================
+   Leaf Archives — Shinobi Design System
+   Naruto-themed parchment scroll & dark armor aesthetic
+   ============================================ */
+
+/* === Custom Theme Layer === */
+@theme {
+  --color-midnight-950: #0a0c10;
+  --color-midnight-900: #10121a;
+  --color-midnight-800: #171b26;
+  --color-midnight-700: #202636;
+  --color-midnight-600: #2b3348;
+
+  --color-surface-primary: #12151e;
+  --color-surface-secondary: #1a1f2c;
+  --color-surface-elevated: #242b3d;
+  --color-surface-glass: rgba(255, 255, 255, 0.03);
+
+  --color-accent-primary: #ff6b00; /* Konoha Orange */
+  --color-accent-secondary: #ffaa00; /* Chakra Yellow */
+  --color-accent-glow: rgba(255, 107, 0, 0.2);
+
+  --color-success: #234b36; /* Leaf Green */
+  --color-warning: #c62828; /* Sage Crimson Red */
+  --color-danger: #ef4444;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-default: rgba(255, 255, 255, 0.08);
+  --color-border-active: rgba(255, 107, 0, 0.35);
+}
+
+/* === Base === */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-midnight-950);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.02) 0%, transparent 40%);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.font-ninja {
+  font-family: 'Permanent Marker', 'Brush Script MT', cursive;
+  letter-spacing: 0.05em;
+}
+
+/* === Scrollbar === */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.25);
+  border-radius: 4px;
+  border: 2px solid var(--color-midnight-950);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 0, 0.45);
+}
+
+/* === Glass Panels === */
+
+.glass {
+  background: rgba(18, 21, 30, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-elevated {
+  background: rgba(26, 31, 44, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-active {
+  background: rgba(255, 107, 0, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(255, 107, 0, 0.08);
+}
+
+/* === Shinobi Parchment Scroll Design === */
+
+.parchment-scroll {
+  background: #fbf5e6;
+  background-image: 
+    radial-gradient(rgba(0,0,0,0.015) 1px, transparent 0),
+    linear-gradient(to right, rgba(0,0,0,0.03) 0%, transparent 8%, transparent 92%, rgba(0,0,0,0.03) 100%);
+  background-size: 24px 24px, 100% 100%;
+  color: #2b1f15;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(139, 90, 43, 0.15);
+  border: 1px solid #dfcfb2;
+  border-radius: 4px;
+  position: relative;
+}
+
+.wood-roller {
+  background: linear-gradient(to right, #4a2810, #73401d 30%, #8c5229 50%, #73401d 70%, #301705);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255,255,255,0.1);
+  border-radius: 999px;
+  border: 1px solid #231105;
+}
+
+.wood-roller-top {
+  height: 18px;
+  margin-bottom: -9px;
+  z-index: 10;
+}
+
+.wood-roller-bottom {
+  height: 18px;
+  margin-top: -9px;
+  z-index: 10;
+}
+
+.wood-roller-left {
+  width: 18px;
+  margin-right: -9px;
+  z-index: 10;
+}
+
+.wood-roller-right {
+  width: 18px;
+  margin-left: -9px;
+  z-index: 10;
+}
+
+/* === Sealing Tag (Fuinjutsu) === */
+
+.sealing-tag {
+  background: #d32f2f;
+  color: #ffffff;
+  font-family: 'Permanent Marker', cursive;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 8px 3px;
+  border-left: 2px solid #8e1c1c;
+  border-right: 2px solid #ff7b7b;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+}
+
+/* === Summoning Circle (Kuchiyose no Jutsu) === */
+
+.summoning-circle {
+  border: 2px dashed rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summoning-circle::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+}
+
+.summoning-circle::after {
+  content: "封印";
+  position: absolute;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12px;
+  opacity: 0.15;
+  color: #2b1f15;
+}
+
+/* === Animations === */
+
+@keyframes shuriken-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-shuriken {
+  animation: shuriken-spin 1.5s linear infinite;
+}
+
+.animate-shuriken-fast {
+  animation: shuriken-spin 0.4s linear infinite;
+}
+
+@keyframes chakra-flow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2), 0 0 20px rgba(0, 229, 255, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4), 0 0 40px rgba(0, 229, 255, 0.15);
+  }
+}
+
+.animate-chakra {
+  animation: chakra-flow 2s infinite ease-in-out;
+}
+
+@keyframes smoke-poof {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-smoke {
+  animation: smoke-poof 0.75s ease-out forwards;
+}
+
+@keyframes scroll-unroll {
+  from {
+    transform: scaleX(0.1);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-scroll-unroll {
+  animation: scroll-unroll 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform-origin: center;
+}
+
+/* === Custom Typography & Styling === */
+
+.text-gradient {
+  background: linear-gradient(135deg, #ff6b00, #ffb300, #ff8f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(255,107,0,0.15));
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #00d2ff, #00a2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* === Markdown Content in Parchment Bubble === */
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  font-family: 'Permanent Marker', sans-serif;
+  color: #3e2715;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+
+.markdown-content h1 { font-size: 1.15rem; }
+.markdown-content h2 { font-size: 1.05rem; }
+.markdown-content h3 { font-size: 1rem; }
+
+.markdown-content p {
+  margin-bottom: 0.75em;
+  line-height: 1.6;
+  color: #3a2e2b;
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin-bottom: 0.75em;
+  padding-left: 1.25em;
+  color: #3a2e2b;
+}
+
+.markdown-content li {
+  margin-bottom: 0.3em;
+  list-style-type: square;
+}
+
+.markdown-content strong {
+  color: #1e110a;
+  font-weight: 700;
+}
+
+.markdown-content code {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-family: 'JetBrains Mono', monospace;
+  color: #b71c1c;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid #ff6b00;
+  padding-left: 0.75em;
+  margin: 0.75em 0;
+  color: #665248;
+  font-style: italic;
+}
+
+/* === Citation Highlight in PDF === */
+
+.citation-highlight {
+  background: rgba(255, 107, 0, 0.25);
+  border: 2px solid rgba(255, 107, 0, 0.6);
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* === Drop Zone === */
+
+.dropzone-active {
+  border-color: var(--color-accent-primary) !important;
+  background: rgba(255, 107, 0, 0.04) !important;
+  box-shadow: inset 0 0 30px rgba(255, 107, 0, 0.05);
+}
+
+/* === Confidence Meter === */
+
+.confidence-meter {
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === Selection === */
+
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: white;
+}
+
+
+/* === Confidence Meter === */
+
+.confidence-meter {
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === Selection === */
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: white;
+}
